@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# and some third party files
+/discord.xml
+# Datasource local storage ignored files
+/../../../../../../../:\Users\User\Desktop\Dev\discussIIT\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
