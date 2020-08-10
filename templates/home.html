@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
+{% block title %}Home — discussIIT{% endblock %}
+
 {% block content %}
-<p>{{ content }}</p>
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+    <!-- I will add more stuff here if user is logged in -->
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Login</a> |
+  <a href="{% url 'signup' %}">Signup</a>
+{% endif %}
 {% endblock %}

@@ -15,8 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import TemplateView
+from django.views.generic import RedirectView
+from pages.views import PostView
 
 urlpatterns = [
-    path('', include('pages.urls'), name='page_views'),
+    # from users
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('users/', include('users.urls')),
+    path('users/', include('django.contrib.auth.urls')),
+
+    # from pages
+    path('post', PostView.as_view(), name='post'),
+    path('post/post', RedirectView.as_view(url='post')),
     path('admin/', admin.site.urls),
 ]
