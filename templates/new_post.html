@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-<form method="post">
+    <div>
+    {% if user.is_authenticated %}
+        <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" name="Post" />
-</form>
-</div>
+        </form>
+{% else %}
+  <p>You are not logged in. Thus, you can't post.</p>
+  <a href="{% url 'login' %}">Login</a> |
+  <a href="{% url 'signup' %}">Signup</a>
+{% endif %}
+    </div>
 {% endblock %}
