@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import PostForm
-from .models import Post
+from .models import Author, Post
 
 
 # Create your views here.
@@ -31,9 +31,8 @@ class PostView(View):
     @staticmethod
     def post(request):
         if request.method == 'POST':
-            form = PostForm(request.POST)
-            if form.is_valid():
-                clean = form.cleaned_data
-                print(clean)
-                form.save(commit=True)
-                return redirect('/')
+            author = Author(name=request.user)
+            author.save()
+            form = author.post_set.create(title=request.POST.get('title'), new_post=request.POST.get('new_post'))
+            form.save()
+            return redirect('/')
