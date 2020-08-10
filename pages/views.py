@@ -1,23 +1,11 @@
-from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import View
+from users.models import CustomUser
 from .forms import PostForm
-from .models import Author, Post
+from .models import Author
 
 
 # Create your views here.
-
-class HomeView(View):
-
-    @staticmethod
-    def get(request):
-        context = {
-            'title': "Home — discussIIT",
-            'content': "Some content"
-        }
-        return render(request, 'home.html', context=context)
-
 
 class PostView(View):
     @staticmethod
@@ -31,8 +19,12 @@ class PostView(View):
     @staticmethod
     def post(request):
         if request.method == 'POST':
-            author = Author(name=request.user)
-            author.save()
-            form = author.post_set.create(title=request.POST.get('title'), new_post=request.POST.get('new_post'))
-            form.save()
-            return redirect('/')
+            user = CustomUser.objects.get(username=request.user)
+            if user.is_authenticated:
+                author = Author(user=user, name=request.user)
+                author.save()
+                form = author.post_set.create(title=request.POST.get('title'), body=request.POST.get('body'))
+                form.save()
+                return redirect('/')
+
+            return redirect('/')  # this one is the same path but only with login and signup content
