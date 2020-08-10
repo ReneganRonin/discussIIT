@@ -19,7 +19,7 @@ class Post(models.Model):
     new_post = models.TextField(max_length=1000)
 
     def __str__(self):
-        return "{} {}".format(self.author, self.title)
+        return "Author: {} | Title:{}".format(self.author, self.title)
 
     class Meta:
         app_label = 'pages'
