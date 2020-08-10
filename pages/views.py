@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from users.models import CustomUser
 from .forms import PostForm
-from .models import Author
+from .models import Post
 
 
 # Create your views here.
@@ -12,8 +12,6 @@ class PostView(View):
     def get(request):
         if request.method == 'GET':
             form = PostForm()
-            form.author = request.user
-            print(form)
             return render(request, 'new_post.html', {'title': "New Post — discussIIT", 'form': form})
 
     @staticmethod
@@ -21,9 +19,7 @@ class PostView(View):
         if request.method == 'POST':
             user = CustomUser.objects.get(username=request.user)
             if user.is_authenticated:
-                author = Author(user=user, name=request.user)
-                author.save()
-                form = author.post_set.create(title=request.POST.get('title'), body=request.POST.get('body'))
+                form = Post(author=user, title=request.POST.get('title'), body=request.POST.get('body'))
                 form.save()
                 return redirect('/')
 
