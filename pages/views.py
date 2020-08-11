@@ -24,3 +24,11 @@ class PostView(View):
                 return redirect('/')
 
             return redirect('/')  # this one is the same path but only with login and signup content
+
+
+class FeedView(View):
+    @staticmethod
+    def get(request):
+        if request.method == 'GET':
+            feed = Post.objects.all()
+            return render(request, 'feed.html', {'title': "Feed — discussIIT", 'feed': feed})
