@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Signup — discussIIT {% endblock %}
+{% block title %}Signup — discussIIT{% endblock %}
 {% block content %}
-<div class="m-5 align-content-center"><h1>Signup</h1></div>
+<div class="m-5 align-content-center"><h1>Sign Up</h1>
+    <small class="text-info"><sup>*</sup>Optional: First name, Last name, Email address</small></div>
 <form method="post">
   {% csrf_token %}
     <tr>
   {% include 'includes/bs4_form.html' with form=form %}
-<button type="submit" class="btn btn-outline-primary m-5 align-content-center">Signup</button>
+<button type="submit" class="btn btn-outline-primary m-5 align-content-center btn-lg">Sign Up</button>
 </form>
 {% endblock %}

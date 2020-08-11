@@ -4,12 +4,19 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+<div class="    bg-success">
+    <p class="text-white m-3">Hi {{ user.username }}!</p></div>
     <!-- I will add more stuff here if user is logged in -->
-  <p><a href="{% url 'logout' %}">logout</a></p>
+
+    <div class="m-3">
+    <a class="btn btn-outline-dark btn-lg rounded" href={% url 'post' %}>Create new post</a>
+        <a class="btn btn-outline-danger btn-sm rounded" href="{% url 'logout' %}">Log Out</a></div>
+
 {% else %}
+    <div class="m-3">
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Login</a> |
-  <a href="{% url 'signup' %}">Signup</a>
+  <a class="btn btn-outline-primary btn-lg" href="{% url 'login' %}">Log In</a> |
+  <a class="btn btn-outline-primary btn-lg" href="{% url 'signup' %}">Sign Up</a>
+    </div>
 {% endif %}
 {% endblock %}
