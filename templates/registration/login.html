@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Login — discussIIT{% endblock %}
 {% block content %}
-<div class="m-5 align-content-center"><h1>Login</h1></div>
+<div class="m-5 align-content-center"><h1>Log In</h1></div>
 <form method="post">
   {% csrf_token %}
   {% include 'includes/bs4_form.html' with form=form %}
-  <button type="submit" class="btn btn-outline-primary m-5 align-content-center">Login</button>
+  <button type="submit" class="btn btn-outline-primary m-5 align-content-center btn-lg">Log In</button>
 </form>
 {% endblock %}

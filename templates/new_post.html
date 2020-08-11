@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
-
+{% block title %}New Post — discussIIT{% endblock %}
 {% block content %}
-    <div>
-    {% if user.is_authenticated %}
+{% if user.is_authenticated %}
+    <div class="bg-dark text-light"><h1 class="ml-5 align-content-center pt-5">New Post</h1></div>
+
         <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" name="Post" />
+    {% include 'includes/bs4_form.html' with form=form %}
+    <button type="submit" class="btn btn-outline-info btn-lg ml-5 mt-3 position-relative align-content-center">Post</button>
         </form>
 {% else %}
-  <p>You are not logged in. Thus, you can't post.</p>
-  <a href="{% url 'login' %}">Login</a> |
-  <a href="{% url 'signup' %}">Signup</a>
+        <div class="m-3 align-content-center">
+  <h4 class="text-danger pt-4 pb-2">You are not logged in. Thus, you can't post.</h4><hr>
+  <a class="btn btn-info btn-sm" href="{% url 'login' %}">Login</a> |
+  <a class="btn btn-outline-info btn-sm" href="{% url 'signup' %}">Signup</a>
 {% endif %}
     </div>
 {% endblock %}
