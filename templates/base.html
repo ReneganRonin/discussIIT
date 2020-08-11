@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="align-content-center"">
 {% block content %}
 
 {% endblock %}
