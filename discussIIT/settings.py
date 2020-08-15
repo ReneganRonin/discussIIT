@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'emoji',
+    'widget_tweaks',
+
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
@@ -46,7 +49,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Login — Logout Redirects
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-####
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

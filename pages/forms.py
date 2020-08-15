@@ -7,5 +7,5 @@ class PostForm(ModelForm):
         model = Post
         fields = ('title', 'body',)
         widgets = {
-            'body': Textarea(attrs={'cols': 80, 'rows': 20})
+            'body': Textarea(attrs={'cols': 80, 'rows': 20, 'placeholder': "Type your post here..."})
         }

@@ -14,18 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic.base import TemplateView
 from django.views.generic import RedirectView
-from pages.views import PostView
+from pages.views import PostView, FeedView
+
 
 urlpatterns = [
     # from users
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
-
+    # some JSON emoji list
+    re_path(r'^emoji/', include('emoji.urls')),
     # from pages
+    path('feed/', RedirectView.as_view(url='feed')),
+    path('feed', FeedView.as_view(), name='feed'),
     path('post', PostView.as_view(), name='post'),
     path('post/post', RedirectView.as_view(url='post')),
     path('admin/', admin.site.urls),
