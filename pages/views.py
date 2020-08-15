@@ -19,13 +19,15 @@ class PostView(View):
         if request.method == 'POST':
             user = CustomUser.objects.get(username=request.user)
             if user.is_authenticated:
-                form = Post(author=user, title=request.POST.get('title'), body=request.POST.get('body'))
+                form = Post(author=user, title=request.POST.get(
+                    'title'), body=request.POST.get('body'))
                 form.save()
                 return redirect('/')
 
-            return redirect('/')  # this one is the same path but only with login and signup content
+            # this one is the same path but only with login and signup content
+            return redirect('/')
 
-          
+
 class FeedView(View):
     @staticmethod
     def get(request):
