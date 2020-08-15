@@ -25,7 +25,7 @@ class PostView(View):
 
             return redirect('/')  # this one is the same path but only with login and signup content
 
-
+          
 class FeedView(View):
     @staticmethod
     def get(request):

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'emoji',
     'widget_tweaks',
+
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
