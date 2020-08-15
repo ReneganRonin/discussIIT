@@ -23,8 +23,10 @@ class PostView(View):
             if user.is_authenticated:
                 author = Author(user=user, name=request.user)
                 author.save()
-                form = author.post_set.create(title=request.POST.get('title'), body=request.POST.get('body'))
+                form = author.post_set.create(title=request.POST.get(
+                    'title'), body=request.POST.get('body'))
                 form.save()
                 return redirect('/')
 
-            return redirect('/')  # this one is the same path but only with login and signup content
+            # this one is the same path but only with login and signup content
+            return redirect('/')
