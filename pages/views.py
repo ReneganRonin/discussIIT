@@ -12,7 +12,9 @@ class PostView(View):
     def get(request):
         if request.method == 'GET':
             form = PostForm()
-            return render(request, 'new_post.html', {'title': "New Post — discussIIT", 'form': form})
+            return render(request,
+                          'new_post.html',
+                          {'title': "New Post — discussIIT", 'form': form})
 
     @staticmethod
     def post(request):
@@ -33,4 +35,6 @@ class FeedView(View):
     def get(request):
         if request.method == 'GET':
             feed = Post.objects.all()
-            return render(request, 'feed.html', {'title': "Feed — discussIIT", 'feed': feed})
+            return render(request,
+                          'feed.html',
+                          {'title': "Feed — discussIIT", 'feed': feed})
