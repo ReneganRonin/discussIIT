@@ -7,7 +7,8 @@
         <form method="post">
     {% csrf_token %}
     {% include 'includes/bs4_form.html' with form=form %}
-    <button type="submit" class="btn btn-outline-info btn-lg ml-5 mt-3 position-relative align-content-center">Post</button>
+    <button type="submit" class="btn btn-outline-info btn-lg ml-5 mt-3 position-relative">Post</button>
+    <a class="btn btn-outline-dark btn-lg rounded ml-3 mt-3" href={% url 'home' %}>Back to Home</a>
         </form>
 {% else %}
         <div class="m-3 align-content-center">

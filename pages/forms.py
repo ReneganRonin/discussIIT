@@ -8,6 +8,7 @@ class PostForm(ModelForm):
         fields = ('title', 'body',)
         widgets = {
             'body': Textarea(attrs={'cols': 80,
-                                    'rows': 20,
+                                    'rows': 35,
+                                    'style': "resize: none",
                                     'placeholder': "Type your post here..."})
         }
