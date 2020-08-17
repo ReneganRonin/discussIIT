@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for post in feed %}
-    <div class="text-primary"><table class="table-info border-dark">
+    <div class="text-primary container-fluid"><table class="border-dark">
         <thead><tr><th colspan="2">{{ post.author }}: {{ post.title }}</th></tr></thead>
     <tbody><tr>
-        <td>{{ post.body }}</td>
-    </tr></tbody></table></div>
-
+        <td><p>{{ post.body }}</p></td>
 {% endfor %}
+
+    </tr></tbody></table><a class="btn btn-outline-primary btn-lg rounded" href={% url 'home' %}>Back to Home</a></div>
+
+
 {% endblock %}
