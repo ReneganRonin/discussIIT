@@ -35,6 +35,7 @@ class FeedView(View):
     def get(request):
         if request.method == 'GET':
             feed = Post.objects.all()
+            print(feed)
             return render(request,
                           'feed.html',
                           {'title': "Feed — discussIIT", 'feed': feed})

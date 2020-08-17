@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-
+{% extends 'base.html' %}
 {% block content %}
 {% for post in feed %}
-    <div>{{ post.author }}: {{ post.title }}</div>
-    <div>{{ post.body }}</div>
+    <div class="text-primary container-fluid"><table class="border-dark">
+        <thead><tr><th colspan="2">{{ post.author }}: {{ post.title }}</th></tr></thead>
+    <tbody><tr>
+        <td><p>{{ post.body }}</p></td>
 {% endfor %}
-{% endblock %}
 
-</body>
-</html>
+    </tr></tbody></table><a class="btn btn-outline-primary btn-lg rounded" href={% url 'home' %}>Back to Home</a></div>
+
+
+{% endblock %}

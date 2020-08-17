@@ -2,7 +2,7 @@
 {% block title %}New Post — discussIIT{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-    <div class="bg-dark text-light"><h1 class="ml-5 align-content-center pt-5">New Post</h1></div>
+    <div class="bg-dark text-light container-fluid"><h1 class="ml-5 align-content-center pt-5">New Post</h1></div>
 
         <form method="post">
     {% csrf_token %}

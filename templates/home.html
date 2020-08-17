@@ -4,12 +4,13 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="    bg-success">
+<div class="bg-success">
     <p class="text-white m-3">Hi {{ user.username }}!</p></div>
     <!-- I will add more stuff here if user is logged in -->
 
     <div class="m-3">
     <a class="btn btn-outline-dark btn-lg rounded" href={% url 'post' %}>Create new post</a>
+    <a class="btn btn-outline-info btn-lg rounded" href={% url 'feed' %}>Go to feed</a>
         <a class="btn btn-outline-danger btn-sm rounded" href="{% url 'logout' %}">Log Out</a></div>
 {% else %}
     <div class="m-3">

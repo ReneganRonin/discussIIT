@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Signup — discussIIT{% endblock %}
 {% block content %}
-<div class="m-5 align-content-center"><h1>Sign Up</h1>
-    <small class="text-info"><sup>*</sup>Optional: First name, Last name, Email address</small></div>
+<div class="ml-5 mt-2" style="width: 1200px"><h1>Sign Up</h1></div>
+    <small class="text-info ml-5"><sup>*</sup>Optional: First name, Last name, Email address</small>
 <form method="post">
   {% csrf_token %}
     <tr>
   {% include 'includes/bs4_form.html' with form=form %}
-<button type="submit" class="btn btn-outline-primary m-5 align-content-center btn-lg">Sign Up</button>
+<button type="submit" class="btn btn-outline-primary btn-lg px-1 ml-5 mt-4" style="width: 455px;">Sign Up</button>
+<br>
+<small class="text-info" style="margin-left: 175px">Already have an account? <a href="{% url 'login' %}">Login</a></small>
+
 </form>
 {% endblock %}
