@@ -1,2 +1,3 @@
 # For security purposes only
 /db.sqlite3
+/.deepsource.toml

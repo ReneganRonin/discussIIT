@@ -12,3 +12,7 @@ class PostForm(ModelForm):
                                     'style': "resize: none",
                                     'placeholder': "Type your post here..."})
         }
+
+
+class DeleteForm(ModelForm):
+    ...

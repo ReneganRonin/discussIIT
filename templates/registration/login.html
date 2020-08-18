@@ -6,6 +6,6 @@
   {% csrf_token %}
   {% include 'includes/bs4_form.html' with form=form %}
   <button type="submit" class="btn btn-outline-primary ml-5 mt-4 align-content-center btn-lg" style="width: 320px">Log In</button><br>
-  <small class="text-muted m-5">Don't have an account yet? <a href="{% url 'signup' %}">Sign Up</a></small>
+  <small class="text-muted" style="margin-left: 110px;">Don't have an account yet? <a href="{% url 'signup' %}">Sign Up</a></small>
 </form>
 {% endblock %}
